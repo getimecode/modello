@@ -71,10 +71,12 @@ class Modello
 
     /**
      * Set the path for the view cache.
+     * Optionaly modify the cache file path for more file organizing freedom under default. Defaults to 'cache/views/' respectively (see contruct).
+     * Recall setCache() at end operation for resetback to default cache path in current route if needed
      */
-    public function setCache(string $cache): string
+    public function setCache(string $cache = ''): string
     {
-        return $this->cache = $cache;
+        return $this->cache = empty($cache) ? $this->cache : $this->cache.$cache;
     }
 
     /**
